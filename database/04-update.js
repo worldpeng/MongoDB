@@ -18,10 +18,9 @@ const userSchema = new mongoose.Schema({
 
 // 使用规则创建集合
 const User = mongoose.model('User', userSchema);
-
-// 查找到一条文档并且删除
-// 返回删除的文档
-// 如何查询条件匹配了多个文档 那么将会删除第一个匹配的文档
-// User.findOneAndDelete({_id: '5c09f267aeb04b22f8460968'}).then(result => console.log(result))
-// 删除多条文档
-User.deleteMany({}).then(result => console.log(result))
+// 找到要删除的文档并且删除
+// 返回是否删除成功的对象
+// 更新单个文档
+// User.updateOne({name: '李四'}, {age: 120, name: '李狗蛋'}).then(result => console.log(result))
+// 更新多个文档中的某项
+User.updateMany({}, {age: 300}).then(result => console.log(result))
